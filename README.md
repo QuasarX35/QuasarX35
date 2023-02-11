@@ -25,9 +25,9 @@ Here are some ideas to get you started:
   - playing the Rubik's Cube
   - typing
  
- Socials:
- Discord: QuasarX35#0831
- LinkedIn: They Kai Zhe
- Twitter: @QuasarX35
- Steam: kyze
- Reddit: QuasarX39 (I rarely use it)
+Socials:
+- Discord: QuasarX35#0831
+- LinkedIn: They Kai Zhe
+- Twitter: @QuasarX35
+- Steam: kyze
+- Reddit: QuasarX39 (I rarely use it)
