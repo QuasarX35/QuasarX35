@@ -1,0 +1,440 @@
+/* ---------------------------- universal styles ---------------------------- */
+:root {
+    --text: #101214;
+    --background: #fcfcfd;
+    --primary: #1D3557;
+    --secondary: #A8DADC;
+    --accent: #E63946;
+    --navbar-size: 70px;
+}
+
+*,
+*:before,
+*:after {
+    /* https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+/* https://cssgradient.io/blog/css-gradient-text/ */
+.gradient-text {
+    background: -webkit-linear-gradient(-45deg,
+            var(--primary),
+            var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/* ----------------------------- specific styles ---------------------------- */
+/* https://www.w2schools.com/howto/howto_css_smooth_scroll.asp#section1 */
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Rubik', 'sans-serif';
+    /* https://stackoverflow.com/questions/6177492/most-standard-way-to-set-font-sizes-in-html-css */
+    font-size: 62.5%;
+    background-color: var(--background);
+    width: 100%;
+}
+
+.content {
+    height: 3000px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#navbar {
+    top: 0;
+    width: 100vw;
+    height: var(--navbar-size);
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+.nav-logo {
+    margin-right: auto;
+}
+
+.nav-logo a {
+    font-size: 4em;
+    text-decoration: none;
+    color: var(--text);
+    display: inline-block;
+}
+
+.nav-item a {
+    font-size: 1.8em;
+    text-decoration: none;
+    color: var(--text);
+    text-align: center;
+}
+
+.nav-item a:hover {
+    background: -webkit-linear-gradient(-45deg,
+            var(--primary),
+            var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* The pseudo element has the same content and hover style, so it pre-sets the width of the element and visibility: hidden hides the pseudo element from actual view. https://stackoverflow.com/questions/556153/inline-elements-shifting-when-made-bold-on-hover */
+a::before {
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    margin-right: 3em;
+}
+
+/* https://developer.mozilla.org/en-US/blog/scroll-progress-animations-in-css/ */
+@keyframes scaleProgress {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.scrl-progress-bar {
+    margin-top: var(--navbar-size);
+    height: 8px;
+    width: 100%;
+    position: fixed;
+    background: linear-gradient(to right,
+            var(--primary),
+            var(--accent));
+    transform-origin: left;
+    animation-timeline: scroll(root);
+    animation-name: scaleProgress;
+    animation-duration: auto;
+    animation-timing-function: linear;
+    z-index: 2;
+}
+
+section {
+    height: 100vh;
+    padding-top: var(--navbar-size);
+}
+
+.gradient-group {
+    background: linear-gradient(var(--background),
+            var(--secondary),
+            var(--secondary),
+            var(--background));
+}
+
+#welcome-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    flex-wrap: wrap;
+}
+
+.intro {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.intro h1 {
+    font-size: 7em;
+    margin-bottom: 5%;
+}
+
+.intro p {
+    font-size: 2.5em;
+}
+
+.intro-text {
+    margin-right: 20%;
+}
+
+.intro img {
+    clip-path: circle();
+    width: 30%;
+}
+
+.welcome-scrl-down-msg {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+@keyframes downUp {
+    from {
+        transform: translateY(0);
+    }
+    
+    to {
+        transform: translateY(5px);
+    }
+}
+
+.welcome-scrl-down-msg i {
+    animation: downUp 0.6s infinite alternate;
+}
+
+.fa-turn-down {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+}
+
+@keyframes fadeAndslideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    
+    10% {
+        opacity: 0;
+    }
+
+    24% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeAndslideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    
+    10% {
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#about-section {
+    /* top | right | bottom | left */
+    padding: var(--navbar-size) 15% 5% 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 2rem;
+}
+
+#about-section h2 {
+    font-size: 6em;
+    animation: fadeAndslideInLeft linear;
+    animation-timeline: view();
+}
+
+#about-section p {
+    text-indent: 3.5rem;
+    font-size: 2.3em;
+    text-align: justify;
+    animation: fadeAndslideInLeft linear;
+    animation-timeline: view();
+}
+
+#projects-section {
+    /* top | right | bottom | left */
+    padding: var(--navbar-size) 15% 5% 15%;
+}
+
+#projects-section h2 {
+    font-size: 6em;
+    animation: fadeAndslideInRight linear;
+    animation-timeline: view();
+}
+
+#projects-section .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    animation: fadeAndslideInRight linear;
+    animation-timeline: view();
+}
+
+#projects-section .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s ease-in-out;
+
+    width: 200px;
+    background: var(--background);
+    position: relative;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden
+}
+
+#projects-section .card a {
+    z-index: 1;
+}
+
+.link-spanner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#projects-section .card::before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 115%;
+    background-color: none;
+    transform: rotate(45deg);
+}
+
+#projects-section .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+#projects-section .card:hover::before {
+    animation: animate 2s linear infinite;
+    background: linear-gradient(
+        to right,
+        var(--primary),
+        var(--accent)
+    );
+    transform: scale(1.05);
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        background-color: var(--accent);
+    }
+}
+
+#projects-section .card::after {
+    position: absolute;
+    content: "";
+    inset: 6px;
+    background: var(--background);
+    border-radius: 5px;
+}
+
+#projects-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+#projects-section .container {
+    /* top | right | bottom | left */
+    padding: 0 1em 0 1em;
+    z-index: 1;
+}
+
+.project-title {
+    font-size: 1.5em;
+}
+
+.project-lang {
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+}
+
+.project-lang i {
+    font-size: 1.9em;
+    margin-right: 10px;
+}
+
+#contact-section {
+    /* top | right | bottom | left */
+    padding: var(--navbar-size) 15% 5% 15%;
+}
+
+#contact-section h2 {
+    font-size: 6em;
+    animation: fadeAndslideInLeft linear;
+    animation-timeline: view();
+}
+
+.contact-option {
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    text-decoration: none;
+    border-radius: 10px;
+    color: var(--text);
+    animation: fadeAndslideInLeft linear;
+    animation-timeline: view();
+}
+
+.contact-option i {
+    font-size: 2em;
+    margin-right: 15px;
+}
+
+.contact-option p {
+    border-bottom: 2px solid #000;
+}
+
+.contact-option:hover {
+    color: var(--background);
+    /* box-shadow: inset 100em 0 0 0 var(--primary); */
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.contact-option:hover p {
+    border-bottom-color: var(--background);
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
