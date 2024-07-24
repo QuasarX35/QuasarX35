@@ -18,5 +18,5 @@ Here are some ideas to get you started:
   
   I have an interest in developing technology such as AI, chatbots, as well as the  automation of tasks and backend systems. Currently, I'm exploring coding and programming in languages such as Python, C, C++, Java, HTML, javascript and CSS. I prefer to work with languages that are lower in level such as C and C++. I would like to one day, work with a company that is developing AI solutions that are able to help developing societies/countries with low/no costs. I'm still looking for a mentor that can provide some tips/advice or a general direction so that I can come up with an effective roadmap that I can use to improve my skills and expand my skillset. 
   
-  Included in this repo is the source code of my personal portfolio website, available for viewing [here](https://quasarx35.github.io/QuasarX35/).
+  Included in this repo is the source code of my personal portfolio website, available for viewing [here](https://quasarx35.github.io/portfolio-website/).
  
